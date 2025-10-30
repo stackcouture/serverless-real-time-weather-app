@@ -27,6 +27,7 @@ User → API Gateway → AWS Lambda → OpenWeather API
 ↓
 DynamoDB Table
 ```
+---
 
 
 ### 🧭 Flow Explanation
@@ -36,3 +37,16 @@ DynamoDB Table
 3️⃣ **Lambda** calls the **OpenWeather API** to fetch real-time data  
 4️⃣ The response is stored in **DynamoDB** for historical tracking  
 5️⃣ The result (current + historical data) is returned to the user
+
+---
+
+### ⚙️ Tech Stack
+
+| Layer | Technology |
+|-------|-------------|
+| 🧠 **Compute** | AWS Lambda (Python 3.9) |
+| 🌐 **API Gateway** | HTTP API + CORS Enabled |
+| 💾 **Database** | DynamoDB (NoSQL) |
+| ☁️ **External API** | OpenWeather API |
+
+---
