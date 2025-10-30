@@ -62,3 +62,34 @@ DynamoDB Table
 💡 Built a **deployable cloud-native app** from scratch  
 
 ---
+### 🧪 API Usage
+
+#### 🟢 **POST** `/weather`
+
+**Request Body:**
+```json
+{
+  "city": "Chennai"
+}
+
+Response:
+{
+  "alert": "✅ Saved weather info for Chennai!"
+}
+```
+
+#### 🔵 **GET**: `/weather`
+```json
+Response:
+
+[
+  {
+    "id": "uuid-123",
+    "city": "Chennai",
+    "temperature": 31.5,
+    "description": "clear sky",
+    "timestamp": "2025-10-30T12:22:10Z"
+  }
+]
+```
+---
