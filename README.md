@@ -7,7 +7,7 @@ Easily extensible to support **alerts**, **automation**, and **monitoring** — 
 ---
 ## 🧪 Sample Output
 
-![Project Output](./output.png)
+![Project Output](./output1.jpg)
 ---
 ### 🧱 Project Overview
 
