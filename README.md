@@ -53,3 +53,12 @@ DynamoDB Table
 | ☁️ **External API** | OpenWeather API |
 
 ---
+### 🧠 Learning Highlights
+
+💡 Hands-on experience with **AWS Serverless Stack**  
+💡 Implemented **IAM roles**, **CORS**, and **API Gateway** integrations  
+💡 Learned to **connect and store data in DynamoDB**  
+💡 Gained exposure to **scalable, event-driven architectures**  
+💡 Built a **deployable cloud-native app** from scratch  
+
+---
