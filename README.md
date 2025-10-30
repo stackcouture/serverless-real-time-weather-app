@@ -62,6 +62,22 @@ DynamoDB Table
 💡 Built a **deployable cloud-native app** from scratch  
 
 ---
+### 🔑 OpenWeather API Token Setup
+
+To fetch real-time weather data, this project uses the **[OpenWeather API](https://openweathermap.org/api)**.  
+You’ll need an API key (token) to access it.
+
+#### 🪄 Steps to Create Your API Token
+
+1️⃣ Go to [https://home.openweathermap.org/users/sign_up](https://home.openweathermap.org/users/sign_up)  
+2️⃣ Create a **free account** (or sign in if you already have one)  
+3️⃣ Navigate to **API Keys** → Click **“Generate”**  
+4️⃣ Copy your API key (looks like `abcd1234efgh5678ijkl9012mnop3456`)  
+5️⃣ Store it securely in your environment variables or AWS Lambda configuration:
+
+   **Example (AWS Lambda → Environment variables):**
+
+---
 ### 🧪 API Usage
 
 #### 🟢 **POST** `/weather`
@@ -104,4 +120,5 @@ python -m http.server 8000
 Then open in your browser:
 
 👉 http://localhost:8000
+```
 ---
