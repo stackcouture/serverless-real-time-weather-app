@@ -5,7 +5,10 @@ A **fully serverless application** built on **AWS Lambda**, **API Gateway**, and
 Easily extensible to support **alerts**, **automation**, and **monitoring** — showcasing **full-stack serverless architecture skills**.
 
 ---
+## 🧪 Sample Output
 
+![Project Output](./output.png)
+---
 ### 🧱 Project Overview
 
 This application allows users to:
