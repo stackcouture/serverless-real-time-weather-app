@@ -66,8 +66,8 @@ DynamoDB Table
 
 #### 🟢 **POST** `/weather`
 
-Request Body:
 ```json
+Request Body:
 {
   "city": "Chennai"
 }
