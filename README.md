@@ -93,3 +93,15 @@ Response:
 ]
 ```
 ---
+### 🧰 Deployment & Testing
+
+#### 🖥️ Frontend (Local Test)
+
+Run a simple local web server:
+
+```bash
+python -m http.server 8000
+Then open in your browser:
+
+👉 http://localhost:8000
+---
