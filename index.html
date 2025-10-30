@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌤️ Real-Time Weather App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      min-height: 100vh;
+      margin: 0;
+      padding-top: 40px;
+    }
+    h1 { margin-bottom: 20px; }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover { background-color: #45a049; }
+    #result, #history {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.2);
+      padding: 15px 20px;
+      border-radius: 10px;
+      width: 340px;
+      text-align: center;
+      min-height: 40px;
+    }
+    #history ul {
+      list-style: none;
+      padding: 0;
+    }
+    #history li {
+      background: rgba(255,255,255,0.15);
+      margin: 6px 0;
+      padding: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌦️ Real-Time Weather App</h1>
+
+  <input type="text" id="city" placeholder="Enter city name" />
+  <button onclick="getWeather()">Get Weather</button>
+  <button onclick="loadHistory()">📜 View History</button>
+
+  <div id="result"></div>
+  <div id="history"></div>
+
+  <script>
+    const apiUrl = "https://jzph4acpw7.execute-api.ap-south-1.amazonaws.com/weather"; // ✅ Update your URL
+
+    async function getWeather() {
+      const city = document.getElementById("city").value.trim();
+      const resultDiv = document.getElementById("result");
+      if (!city) return resultDiv.innerHTML = "⚠️ Please enter a city name.";
+
+      resultDiv.innerHTML = "Fetching weather data... ⏳";
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ city })
+        });
+        const data = await response.json();
+        resultDiv.innerHTML = data.alert ? `✅ ${data.alert}` : `❌ ${data.error}`;
+      } catch (err) {
+        resultDiv.innerHTML = `❌ Network error: ${err.message}`;
+      }
+    }
+
+    async function loadHistory() {
+      const historyDiv = document.getElementById("history");
+      historyDiv.innerHTML = "Loading history... ⏳";
+      try {
+        const response = await fetch(apiUrl, { method: "GET" });
+        const data = await response.json();
+        if (data.length === 0) {
+          historyDiv.innerHTML = "📭 No history found.";
+          return;
+        }
+        historyDiv.innerHTML = "<h3>📜 Weather History</h3><ul>" +
+          data.map(item => `<li>${item.city} → ${item.temperature}°C, ${item.description} <br><small>${item.timestamp}</small></li>`).join("") +
+          "</ul>";
+      } catch (err) {
+        historyDiv.innerHTML = `❌ Error loading history: ${err.message}`;
+      }
+    }
+  </script>
+</body>
+</html>
